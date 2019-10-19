@@ -9,4 +9,5 @@ public interface AthleteService {
 	public abstract List<Athlete> getAllAthletes();
 	public abstract Athlete addAthlete(Athlete athlete);
 	public abstract List<Athlete> getElite(LocalDate date);
+	public abstract int countEliteAthletes();
 }

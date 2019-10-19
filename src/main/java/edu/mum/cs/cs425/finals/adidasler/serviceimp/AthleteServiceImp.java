@@ -1,6 +1,7 @@
 package edu.mum.cs.cs425.finals.adidasler.serviceimp;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,15 @@ public class AthleteServiceImp implements AthleteService{
 	@Override
 	public List<Athlete> getElite(LocalDate date) {
 		return repo.findElites(date);
+	}
+
+	@Override
+	public int countEliteAthletes() {
+		String date = "2019-10-19";		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate localDate = LocalDate.parse(date, formatter);
+		
+		return repo.findElites(localDate).size();
 	}
 
 }
